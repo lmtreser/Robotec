@@ -7,6 +7,7 @@ Biblioteca para trabajar con robotica educativa bajo la competencia Robotec. Act
 - Sensor de proximidad por infrarrojos simple (Tracking y similares)
 - Sensor de proximidad por infrarrojos triple (Funduino y similares)
 - LED de uso general
+- Pulsador
 
 --
 Lucas Martin Treser
