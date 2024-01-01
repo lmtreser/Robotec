@@ -1,0 +1,75 @@
+\hypertarget{classMotor}{}\doxysection{Referencia de la Clase Motor}
+\label{classMotor}\index{Motor@{Motor}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMotor_ae9617669a35a13de90d6f54d8d7e39ec}{Motor}} (uint8\+\_\+t enable\+Pin, uint8\+\_\+t in1\+Pin, uint8\+\_\+t in2\+Pin)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classMotor}{Motor}} de corriente continua. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotor_a237e8c9e6e58bfc39fa103bb3b0b10fe}{start}} (uint8\+\_\+t pwm)
+\begin{DoxyCompactList}\small\item\em Enciende el motor en un sentido (marcha) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotor_aad090f2aa4d9ffa5b8af7c89748ac046}{reverse}} (uint8\+\_\+t pwm)
+\begin{DoxyCompactList}\small\item\em Enciende el motor con la marcha invertida respecto a {\bfseries{\mbox{\hyperlink{classMotor_a237e8c9e6e58bfc39fa103bb3b0b10fe}{start()}}}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMotor_ae8747855c2e4cb1992eaddf687db7a6f}\label{classMotor_ae8747855c2e4cb1992eaddf687db7a6f}} 
+void {\bfseries brake} ()
+\begin{DoxyCompactList}\small\item\em Frenar el motor, dejandolo en posición de giro libre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classMotor_ae9617669a35a13de90d6f54d8d7e39ec}\label{classMotor_ae9617669a35a13de90d6f54d8d7e39ec}} 
+\index{Motor@{Motor}!Motor@{Motor}}
+\index{Motor@{Motor}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{Motor()}{Motor()}}
+{\footnotesize\ttfamily Motor\+::\+Motor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{enable\+Pin,  }\item[{uint8\+\_\+t}]{in1\+Pin,  }\item[{uint8\+\_\+t}]{in2\+Pin }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classMotor}{Motor}} de corriente continua. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em enable\+Pin} & Pin fisico ENABLE \\
+\hline
+{\em in1\+Pin} & Pin fisico IN1 \\
+\hline
+{\em in2\+Pin} & Pin fisico IN2 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classMotor_aad090f2aa4d9ffa5b8af7c89748ac046}\label{classMotor_aad090f2aa4d9ffa5b8af7c89748ac046}} 
+\index{Motor@{Motor}!reverse@{reverse}}
+\index{reverse@{reverse}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily void Motor\+::reverse (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pwm }\end{DoxyParamCaption})}
+
+
+
+Enciende el motor con la marcha invertida respecto a {\bfseries{\mbox{\hyperlink{classMotor_a237e8c9e6e58bfc39fa103bb3b0b10fe}{start()}}}} 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pmw} & Velocidad opcional, valor {\bfseries{uint8\+\_\+t}}, rango 0-\/255 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMotor_a237e8c9e6e58bfc39fa103bb3b0b10fe}\label{classMotor_a237e8c9e6e58bfc39fa103bb3b0b10fe}} 
+\index{Motor@{Motor}!start@{start}}
+\index{start@{start}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Motor\+::start (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pwm }\end{DoxyParamCaption})}
+
+
+
+Enciende el motor en un sentido (marcha) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pwm} & Velocidad opcional, valor {\bfseries{uint8\+\_\+t}}, rango 0-\/255 \\
+\hline
+\end{DoxyParams}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Robotec.\+h\item 
+Robotec.\+cpp\end{DoxyCompactItemize}
