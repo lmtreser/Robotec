@@ -23,6 +23,7 @@ void loop() {
   /*** Enciende un LED ***/
   //ledBuiltin.on();
   //delay(1000);
+  
   /*** Apaga un LED ***/
   //ledBuiltin.off();
   //delay(1000);
