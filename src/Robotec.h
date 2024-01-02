@@ -89,7 +89,7 @@ class Led {
     void off();                                        // Apaga
     void toogle();                                     // Cambia el estado
     void blinkStart(uint16_t time);                    // Destello, ejecutar en loop()
-    bool blinkStart(uint16_t time, int8_t pulses);     // Destello controlado, ejecutar en loop()
+    bool blinkStart(uint16_t time, uint8_t pulses);    // Destello controlado, ejecutar en loop()
     void blinkStop();                                  // Finaliza el destello
 
   private:
