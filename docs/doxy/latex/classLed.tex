@@ -14,11 +14,13 @@ void {\bfseries off} ()
 \mbox{\Hypertarget{classLed_addb51d306b7276ff8ef60e348ed503df}\label{classLed_addb51d306b7276ff8ef60e348ed503df}} 
 void {\bfseries toogle} ()
 \begin{DoxyCompactList}\small\item\em Cambia el estado de un LED. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classLed_a85d61f9fc808ad962d5e2195ca37bf98}{blink\+Start}} (uint16\+\_\+t time, int8\+\_\+t pulses=0)
-\begin{DoxyCompactList}\small\item\em Inicia el destello de un LED, ejecutar en {\itshape loop()}, si no se indica el parametro {\itshape pulses} el LED destellará todo el tiempo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLed_aeb55192e5ab4c2cc9487aa2222da0447}{blink\+Start}} (uint16\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em Inicia el destello de un LED, ejecutar en {\itshape loop()}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLed_a6ea8284ce5c4fa3d5fadc81757cefb51}{blink\+Start}} (uint16\+\_\+t time, uint8\+\_\+t pulses)
+\begin{DoxyCompactList}\small\item\em Inicia el destello de un LED, ejecutar en {\itshape loop()}. El parametro {\itshape pulses} establece la cantidad de destellos, al finalizar devuelve true. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classLed_acf8747a672fe5f3dba4a664e5e173618}\label{classLed_acf8747a672fe5f3dba4a664e5e173618}} 
 void {\bfseries blink\+Stop} ()
-\begin{DoxyCompactList}\small\item\em Detiene el destello de un LED iniciado por {\itshape \mbox{\hyperlink{classLed_a85d61f9fc808ad962d5e2195ca37bf98}{blink\+Start()}}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Detiene el destello de un LED iniciado por {\itshape \mbox{\hyperlink{classLed_aeb55192e5ab4c2cc9487aa2222da0447}{blink\+Start()}}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentación del constructor y destructor}
@@ -40,21 +42,36 @@ LED testigo.
 
 
 \doxysubsection{Documentación de las funciones miembro}
-\mbox{\Hypertarget{classLed_a85d61f9fc808ad962d5e2195ca37bf98}\label{classLed_a85d61f9fc808ad962d5e2195ca37bf98}} 
+\mbox{\Hypertarget{classLed_aeb55192e5ab4c2cc9487aa2222da0447}\label{classLed_aeb55192e5ab4c2cc9487aa2222da0447}} 
 \index{Led@{Led}!blinkStart@{blinkStart}}
 \index{blinkStart@{blinkStart}!Led@{Led}}
-\doxysubsubsection{\texorpdfstring{blinkStart()}{blinkStart()}}
-{\footnotesize\ttfamily void Led\+::blink\+Start (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{time,  }\item[{int8\+\_\+t}]{pulses = {\ttfamily 0} }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{blinkStart()}{blinkStart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Led\+::blink\+Start (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{time }\end{DoxyParamCaption})}
 
 
 
-Inicia el destello de un LED, ejecutar en {\itshape loop()}, si no se indica el parametro {\itshape pulses} el LED destellará todo el tiempo. 
+Inicia el destello de un LED, ejecutar en {\itshape loop()}. 
 
 
 \begin{DoxyParams}{Parámetros}
 {\em time} & Tiempo entre cambios de estado, tipo {\bfseries{uint16\+\_\+t}} \\
 \hline
-{\em pulses} & Cantidad de veces que debera hacer los cambios de estado, tipo {\bfseries{int8\+\_\+t}}, parametro opcional \\
+\end{DoxyParams}
+\mbox{\Hypertarget{classLed_a6ea8284ce5c4fa3d5fadc81757cefb51}\label{classLed_a6ea8284ce5c4fa3d5fadc81757cefb51}} 
+\index{Led@{Led}!blinkStart@{blinkStart}}
+\index{blinkStart@{blinkStart}!Led@{Led}}
+\doxysubsubsection{\texorpdfstring{blinkStart()}{blinkStart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Led\+::blink\+Start (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{time,  }\item[{uint8\+\_\+t}]{pulses }\end{DoxyParamCaption})}
+
+
+
+Inicia el destello de un LED, ejecutar en {\itshape loop()}. El parametro {\itshape pulses} establece la cantidad de destellos, al finalizar devuelve true. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em time} & Tiempo entre cambios de estado, tipo {\bfseries{uint16\+\_\+t}} \\
+\hline
+{\em pulses} & Cantidad de veces que debera hacer los cambios de estado, tipo {\bfseries{uint8\+\_\+t}} \\
 \hline
 \end{DoxyParams}
 

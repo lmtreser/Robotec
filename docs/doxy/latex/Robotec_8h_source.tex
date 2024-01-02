@@ -91,18 +91,19 @@
 \DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLed_aacd02b0eb819d77c24e93adf02102fae}{on}}();                                         \textcolor{comment}{// Enciende}}
 \DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLed_a074b561e0b5a9501f77b606223ec039d}{off}}();                                        \textcolor{comment}{// Apaga}}
 \DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLed_addb51d306b7276ff8ef60e348ed503df}{toogle}}();                                     \textcolor{comment}{// Cambia el estado}}
-\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLed_a85d61f9fc808ad962d5e2195ca37bf98}{blinkStart}}(uint16\_t time, int8\_t pulses = 0); \textcolor{comment}{// Destello, ejecutar en loop()}}
-\DoxyCodeLine{92     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLed_acf8747a672fe5f3dba4a664e5e173618}{blinkStop}}();                                  \textcolor{comment}{// Finaliza el destello}}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{94   \textcolor{keyword}{private}:}
-\DoxyCodeLine{95     \textcolor{keywordtype}{bool} \_statusLed;}
-\DoxyCodeLine{96     \textcolor{keywordtype}{bool} \_blinkStopValue;}
-\DoxyCodeLine{97     \textcolor{keywordtype}{bool} \_blinkFlag;}
-\DoxyCodeLine{98     uint8\_t \_blinkPulses;}
-\DoxyCodeLine{99     uint8\_t \_ledPin;}
-\DoxyCodeLine{100     uint32\_t \_lastMillis;}
-\DoxyCodeLine{101 \};}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLed_aeb55192e5ab4c2cc9487aa2222da0447}{blinkStart}}(uint16\_t time);                    \textcolor{comment}{// Destello, ejecutar en loop()}}
+\DoxyCodeLine{92     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLed_aeb55192e5ab4c2cc9487aa2222da0447}{blinkStart}}(uint16\_t time, uint8\_t pulses);    \textcolor{comment}{// Destello controlado, ejecutar en loop()}}
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLed_acf8747a672fe5f3dba4a664e5e173618}{blinkStop}}();                                  \textcolor{comment}{// Finaliza el destello}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95   \textcolor{keyword}{private}:}
+\DoxyCodeLine{96     \textcolor{keywordtype}{bool} \_statusLed;}
+\DoxyCodeLine{97     \textcolor{keywordtype}{bool} \_blinkStopValue;}
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool} \_blinkFlag;}
+\DoxyCodeLine{99     uint8\_t \_blinkPulses;}
+\DoxyCodeLine{100     uint8\_t \_ledPin;}
+\DoxyCodeLine{101     uint32\_t \_lastMillis;}
+\DoxyCodeLine{102 \};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

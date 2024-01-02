@@ -86,12 +86,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>off</b> ()</td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>toogle</b> ()</td></tr>
 <tr class="memdesc:addb51d306b7276ff8ef60e348ed503df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cambia el estado de un LED. <br /></td></tr>
 <tr class="separator:addb51d306b7276ff8ef60e348ed503df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85d61f9fc808ad962d5e2195ca37bf98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLed.html#a85d61f9fc808ad962d5e2195ca37bf98">blinkStart</a> (uint16_t time, int8_t pulses=0)</td></tr>
-<tr class="memdesc:a85d61f9fc808ad962d5e2195ca37bf98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia el destello de un LED, ejecutar en <em>loop()</em>, si no se indica el parametro <em>pulses</em> el LED destellará todo el tiempo.  <a href="classLed.html#a85d61f9fc808ad962d5e2195ca37bf98">Más...</a><br /></td></tr>
-<tr class="separator:a85d61f9fc808ad962d5e2195ca37bf98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb55192e5ab4c2cc9487aa2222da0447"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLed.html#aeb55192e5ab4c2cc9487aa2222da0447">blinkStart</a> (uint16_t time)</td></tr>
+<tr class="memdesc:aeb55192e5ab4c2cc9487aa2222da0447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia el destello de un LED, ejecutar en <em>loop()</em>.  <a href="classLed.html#aeb55192e5ab4c2cc9487aa2222da0447">Más...</a><br /></td></tr>
+<tr class="separator:aeb55192e5ab4c2cc9487aa2222da0447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ea8284ce5c4fa3d5fadc81757cefb51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLed.html#a6ea8284ce5c4fa3d5fadc81757cefb51">blinkStart</a> (uint16_t time, uint8_t pulses)</td></tr>
+<tr class="memdesc:a6ea8284ce5c4fa3d5fadc81757cefb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia el destello de un LED, ejecutar en <em>loop()</em>. El parametro <em>pulses</em> establece la cantidad de destellos, al finalizar devuelve true.  <a href="classLed.html#a6ea8284ce5c4fa3d5fadc81757cefb51">Más...</a><br /></td></tr>
+<tr class="separator:a6ea8284ce5c4fa3d5fadc81757cefb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf8747a672fe5f3dba4a664e5e173618"><td class="memItemLeft" align="right" valign="top"><a id="acf8747a672fe5f3dba4a664e5e173618" name="acf8747a672fe5f3dba4a664e5e173618"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>blinkStop</b> ()</td></tr>
-<tr class="memdesc:acf8747a672fe5f3dba4a664e5e173618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detiene el destello de un LED iniciado por <em><a class="el" href="classLed.html#a85d61f9fc808ad962d5e2195ca37bf98" title="Inicia el destello de un LED, ejecutar en loop(), si no se indica el parametro pulses el LED destella...">blinkStart()</a></em> <br /></td></tr>
+<tr class="memdesc:acf8747a672fe5f3dba4a664e5e173618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detiene el destello de un LED iniciado por <em><a class="el" href="classLed.html#aeb55192e5ab4c2cc9487aa2222da0447" title="Inicia el destello de un LED, ejecutar en loop().">blinkStart()</a></em> <br /></td></tr>
 <tr class="separator:acf8747a672fe5f3dba4a664e5e173618"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación del constructor y destructor</h2>
@@ -122,8 +125,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>blinkStop</b> ()</td>
 </div>
 </div>
 <h2 class="groupheader">Documentación de las funciones miembro</h2>
-<a id="a85d61f9fc808ad962d5e2195ca37bf98" name="a85d61f9fc808ad962d5e2195ca37bf98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85d61f9fc808ad962d5e2195ca37bf98">&#9670;&nbsp;</a></span>blinkStart()</h2>
+<a id="aeb55192e5ab4c2cc9487aa2222da0447" name="aeb55192e5ab4c2cc9487aa2222da0447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb55192e5ab4c2cc9487aa2222da0447">&#9670;&nbsp;</a></span>blinkStart() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,13 +135,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>blinkStop</b> ()</td>
           <td class="memname">void Led::blinkStart </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicia el destello de un LED, ejecutar en <em>loop()</em>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Tiempo entre cambios de estado, tipo <b>uint16_t</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6ea8284ce5c4fa3d5fadc81757cefb51" name="a6ea8284ce5c4fa3d5fadc81757cefb51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea8284ce5c4fa3d5fadc81757cefb51">&#9670;&nbsp;</a></span>blinkStart() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Led::blinkStart </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>time</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int8_t&#160;</td>
-          <td class="paramname"><em>pulses</em> = <code>0</code>&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pulses</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -148,11 +177,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>blinkStop</b> ()</td>
       </table>
 </div><div class="memdoc">
 
-<p>Inicia el destello de un LED, ejecutar en <em>loop()</em>, si no se indica el parametro <em>pulses</em> el LED destellará todo el tiempo. </p>
+<p>Inicia el destello de un LED, ejecutar en <em>loop()</em>. El parametro <em>pulses</em> establece la cantidad de destellos, al finalizar devuelve true. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">time</td><td>Tiempo entre cambios de estado, tipo <b>uint16_t</b> </td></tr>
-    <tr><td class="paramname">pulses</td><td>Cantidad de veces que debera hacer los cambios de estado, tipo <b>int8_t</b>, parametro opcional </td></tr>
+    <tr><td class="paramname">pulses</td><td>Cantidad de veces que debera hacer los cambios de estado, tipo <b>uint8_t</b> </td></tr>
   </table>
   </dd>
 </dl>
