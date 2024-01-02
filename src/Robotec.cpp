@@ -245,9 +245,9 @@ void Led::blinkStart(uint16_t time) {
 /** @brief Inicia el destello de un LED, ejecutar en _loop()_.
  *  El parametro _pulses_ establece la cantidad de destellos, al finalizar devuelve true
  *  @param time Tiempo entre cambios de estado, tipo **uint16_t**
- *  @param pulses Cantidad de veces que debera hacer los cambios de estado, tipo **int8_t**
+ *  @param pulses Cantidad de veces que debera hacer los cambios de estado, tipo **uint8_t**
 **/
-bool Led::blinkStart(uint16_t time, int8_t pulses) {
+bool Led::blinkStart(uint16_t time, uint8_t pulses) {
 
   // Solo se ejecuta si "pulses" esta configurado con un entero mayor a 0
   if ((pulses > 0) && (_blinkFlag == false)) {
