@@ -20,10 +20,7 @@ void led() {
   ledStatus = !ledStatus;
   digitalWrite(13, ledStatus);
 }
-// para el constructor
-// Button(uint8_t pin, uint8_t mode);
-// void pushStart(uint8_t time);
-// void pushStart(uint8_t time, void (*callback)());
+
 void pushStart(uint8_t time, void (*callback)()) {
 
   bool pushExit = true;

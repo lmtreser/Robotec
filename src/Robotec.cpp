@@ -277,3 +277,31 @@ bool Led::blinkStart(uint16_t time, uint8_t pulses) {
     }
   }
 }
+
+/** @brief Pulsador (pushbutton) 
+ *  @param buttonPin  Pin fisico donde se conecta el Pulsador
+ *  @param buttonMode Modos: PULL-UP, PULL-DOWN
+**/
+Button::Button(uint8_t buttonPin, uint8_t buttonMode) {
+  
+  _buttonPin = buttonPin;
+  _buttonMode = buttonMode;
+
+  pinMode(_buttonPin, _buttonMode);
+
+}
+
+/** @brief ... 
+ *  @param ...
+**/
+void Button::pushStart(uint8_t time) {
+
+}
+
+/** @brief ... 
+ *  @param ...
+ *  @param ...
+**/
+void Button::pushStart(uint8_t time, void (*callback)()) {
+  
+}

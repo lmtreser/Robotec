@@ -101,4 +101,15 @@ class Led {
     uint32_t _lastMillis;
 };
 
+/*** Pulsador ***/
+class Button {
+  public:
+    Button(uint8_t buttonPin, uint8_t buttonMode);
+    void pushStart(uint8_t time);
+    void pushStart(uint8_t time, void (*callback)());
+
+  private:
+    uint8_t _buttonPin;
+    uint8_t _buttonMode;
+};
 #endif
