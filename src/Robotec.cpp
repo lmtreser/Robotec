@@ -200,6 +200,7 @@ Led::Led(uint8_t ledPin) {
   _blinkStopValue = false;
   _blinkFlag = false;
   _blinkPulses = 0;
+  _lastMillis = 0;
 
   pinMode(_ledPin, OUTPUT);
 }
@@ -225,38 +226,54 @@ void Led::blinkStop() {
   _blinkStopValue = true;
 }
 
-/** @brief Inicia el destello de un LED, ejecutar en _loop()_, si no se indica el parametro
- *  _pulses_ el LED destellará todo el tiempo
+/** @brief Inicia el destello de un LED, ejecutar en _loop()_.
  *  @param time Tiempo entre cambios de estado, tipo **uint16_t**
- *  @param pulses Cantidad de veces que debera hacer los cambios de estado, tipo **int8_t**, 
- *  parametro opcional
 **/
-void Led::blinkStart(uint16_t time, int8_t pulses = 0) {
+void Led::blinkStart(uint16_t time) {
   
+  uint16_t blinkTime = time;
+  uint32_t currentMillis = millis();
+
+  if (!_blinkStopValue) {    
+    if (currentMillis - _lastMillis >= blinkTime) {
+      _lastMillis = currentMillis;
+      toogle();
+    }
+  }
+}
+
+/** @brief Inicia el destello de un LED, ejecutar en _loop()_.
+ *  El parametro _pulses_ establece la cantidad de destellos, al finalizar devuelve true
+ *  @param time Tiempo entre cambios de estado, tipo **uint16_t**
+ *  @param pulses Cantidad de veces que debera hacer los cambios de estado, tipo **uint8_t**
+**/
+bool Led::blinkStart(uint16_t time, uint8_t pulses) {
+
   // Solo se ejecuta si "pulses" esta configurado con un entero mayor a 0
   if ((pulses > 0) && (_blinkFlag == false)) {
     _blinkPulses = pulses * 2; // Un pulso se considera como una secuencia ON/OFF
     _blinkFlag = true;
-  } else if (_blinkFlag == false) {
-      _lastMillis = 0;
-      _blinkFlag = true;
   }
 
   if (!_blinkStopValue) {
     
     uint16_t blinkTime = time;
     uint32_t currentMillis = millis();
-    
+
     if (currentMillis - _lastMillis >= blinkTime) {
       
       _lastMillis = currentMillis;
       toogle();
-
+      
       if (_blinkPulses > 0) {
-        _blinkPulses--;
-        if (_blinkPulses == 0) blinkStop();
+        _blinkPulses--;        
+        if (_blinkPulses == 0) {
+          blinkStop();
+          return true; // Finalizo la ejecucion
+        } else {
+          return false;
+        }
       }
     }
   }
 }
-
