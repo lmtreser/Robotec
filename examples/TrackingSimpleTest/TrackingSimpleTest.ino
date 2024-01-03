@@ -8,6 +8,9 @@
 // Constantes pines
 const int OUT_PIN = 4;
 
+// Otras constantes
+const int DELAY_TIME = 1000;
+
 // Pin OUT, linea negra = LOW (por defecto)
 Tracking sensorLinea(OUT_PIN);
 // Pin OUT, linea negra = HIGH
@@ -30,5 +33,5 @@ void loop() {
     Serial.println("Fuera de la linea :(");
   }
 
-  delay(1000);
+  delay(DELAY_TIME);
 }
