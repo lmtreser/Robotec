@@ -53,10 +53,10 @@ unsigned int Ultrasonic::timing() {
 
   previousMicros = micros();
   // wait for the echo pin HIGH or timeout
-  while(!digitalRead(echo) && (micros() - previousMicros) <= timeout);
+  while (!digitalRead(echo) && (micros() - previousMicros) <= timeout);
   previousMicros = micros();
   // wait for the echo pin LOW or timeout
-  while(digitalRead(echo)  && (micros() - previousMicros) <= timeout);
+  while (digitalRead(echo)  && (micros() - previousMicros) <= timeout);
 
   return micros() - previousMicros; // duration
 }
@@ -321,37 +321,32 @@ bool Button::push() {
 
 /** @brief Lee el estado de un Pulsador y genera una demora bloqueante (_delay_) 
  *  segun el tiempo especificado por **time**
- *  @param time Tiempo (en mS) entre cambios de estado, tipo **uint16_t**
+ *  @param time Tiempo (en mS) en salir del bucle, tipo **uint16_t**
 **/
 void Button::pushStart(uint16_t time) {
 
   bool pushStartExit = true;
   uint16_t pushStartDelay = time;
   
-  while(pushStartExit) {
+  while (pushStartExit) {
     bool pulsaRead = push();
     if (pulsaRead == HIGH) pushStartExit = false;
   }
   delay(pushStartDelay);
 }
 
-/** @brief Lee el estado de un Pulsador y genera una demora bloqueante (_delay_) 
- *  segun el tiempo especificado 
- *  @param time Tiempo (en mS) entre cambios de estado, tipo **uint16_t**
- *  @param void (*callback)() 
+/** @brief Lee el estado de un Pulsador y genera un callback
+ *  @param void (*callback)() Funcion a ejecutar, si la firma no coincide
+ *  habra que valerse de una funcion lambda para enmascarar la funcion a pasar,
+ *  por ejemplo:   auto callback = []() { funcion_a_enmascarar(parametro); };
 **/
-void Button::pushStart(uint16_t time, void (*callback)()) {
+void Button::pushStart(void (*callback)()) {
   
-  bool pushExit = true;
-  int pushDelay = time;
+  bool pushStartExit = true;
   
-  while(pushExit){
-    int pulsa = push();
-      if (pulsa) {
-        pushExit = false;
-        Serial.println("Press");
-      }
-      (*callback)();
+  while (pushStartExit) {
+    bool pulsaRead = push();
+    if (pulsaRead == HIGH) pushStartExit = false;
+    (*callback)();
   }
-  delay(pushDelay);
 }

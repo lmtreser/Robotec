@@ -124,7 +124,7 @@ class Button {
     Button(uint8_t buttonPin, uint8_t buttonMode);
     bool push();
     void pushStart(uint16_t time);
-    void pushStart(uint16_t time, void (*callback)());
+    void pushStart(void (*callback)());
 
   private:
     uint8_t _buttonPin;
