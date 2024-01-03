@@ -289,6 +289,7 @@ Button::Button(uint8_t buttonPin, uint8_t buttonMode) {
   _buttonMode = buttonMode;
   _buttonState = LOW;
   _buttonLastState = LOW;
+  _timeLast = 0;
 
   if (_buttonMode == PULL_DOWN) {
     pinMode(_buttonPin, INPUT);
@@ -302,12 +303,11 @@ Button::Button(uint8_t buttonPin, uint8_t buttonMode) {
 **/
 bool Button::push() {
 
-  uint32_t timeLast = 0;
-
-  uint8_t buttonRead = digitalRead(_buttonPin);
-  if (buttonRead != _buttonLastState) timeLast = millis();
+  // if (_buttonMode == PULL_DOWN) ...
+  uint8_t buttonRead = !digitalRead(_buttonPin);
+  if (buttonRead != _buttonLastState) _timeLast = millis();
   
-  if ((millis() - timeLast) > _TIME_DEBOUNCE) {
+  if ((millis() - _timeLast) > _TIME_DEBOUNCE) {
     if (buttonRead != _buttonState) {
       _buttonState = buttonRead;
       return true;
@@ -323,6 +323,8 @@ bool Button::push() {
  *  @param time Tiempo (en mS) entre cambios de estado, tipo **uint16_t**
 **/
 void Button::pushStart(uint16_t time) {
+
+
 
 }
 
