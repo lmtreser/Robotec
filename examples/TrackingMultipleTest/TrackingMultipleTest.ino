@@ -10,6 +10,9 @@ const int IZQ_PIN = 7;
 const int CEN_PIN = 6;
 const int DER_PIN = 5;
 
+// Otras constantes
+const int DELAY_TIME = 500;
+
 // Pin IZQUIERDO, Pin CENTRAL, Pin DERECHO, linea negra = LOW (por defecto)
 Tracking sensorMultiple(IZQ_PIN, CEN_PIN, DER_PIN);
 // Pin IZQUIERDO, Pin CENTRAL, Pin DERECHO, linea negra = HIGH
@@ -59,5 +62,5 @@ void loop() {
     default:
       Serial.print("Lectura erronea");
   }
-  delay(500);
+  delay(DELAY_TIME);
 }

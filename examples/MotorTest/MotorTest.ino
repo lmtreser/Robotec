@@ -10,6 +10,10 @@ const int ENA = 3;
 const int IN1 = 2;
 const int IN2 = 4;
 
+// Otras constantes
+const int DELAY_TIME = 2000;
+const int DELAY_SHORT = 100;
+
 // Pines: ENABLE, IN1, IN2
 Motor motorA(ENA, IN1, IN2);
 
@@ -24,11 +28,11 @@ void loop() {
   // Secuencia: arranque, freno, inversion de marcha
   int velocidad = PWM_MAX;
   motorA.start(velocidad);
-  delay(2000);
+  delay(DELAY_TIME);
   motorA.reverse(velocidad);
-  delay(2000);
+  delay(DELAY_TIME);
   motorA.brake();
-  delay(2000);
+  delay(DELAY_TIME);
 
   // Secuencia marcha con incremento de velocidad
   for (int i = 0; i < 255; i++) {
@@ -36,15 +40,15 @@ void loop() {
     motorA.start(velocidad);
     Serial.print("PWM: ");
     Serial.println(velocidad);
-    delay(100);
+    delay(DELAY_SHORT);
   }
-  delay(1000);
+  delay(DELAY_TIME);
   // Secuencia marcha con decremento de velocidad
   for (int j = 255; j > 0; j--) {
     velocidad = j;
     motorA.start(velocidad);
     Serial.print("PWM: ");
     Serial.println(j);
-    delay(100);
+    delay(DELAY_SHORT);
   }
 }

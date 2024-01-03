@@ -14,6 +14,10 @@
 #include <Robotec.h>
 #include "pines.h"
 
+// Algunas constantes
+const int BLINK_TIME = 300;
+const int DELAY_TIME = 2000;
+
 // Sensores de distancia
 Ultrasonic ultrasonicFrl(ULTRASON_TRIG_1, ULTRASON_ECHO_1);
 Ultrasonic ultrasonicIzq(ULTRASON_TRIG_2, ULTRASON_ECHO_2);
@@ -31,6 +35,9 @@ Motor motorB(MB_ENABLE, MB_IN1, MB_IN2);
 // LED Testigo
 Led led(LED_1);
 
+// Pulsador
+Button miPulsador(BOT_START, PULL_UP);
+
 void setup() {
 
   // Configurar pin no usado
@@ -43,10 +50,10 @@ void setup() {
 void loop() {
 
   // LED blink
-  led.blinkStart(300);
+  led.blinkStart(BLINK_TIME);
   
   // Leer estado del pulsador
-  bool estadoBoton = digitalRead(BOT_START);
+  bool estadoBoton = miPulsador.push();
   Serial.print("Pulsador: ");
   Serial.println(estadoBoton);
 
@@ -78,11 +85,11 @@ void loop() {
   int velocidad = PWM_MAX;
   motorA.start(velocidad);
   motorB.start(velocidad);
-  delay(2000);
+  delay(DELAY_TIME);
   motorA.reverse(velocidad);
   motorB.reverse(velocidad);
-  delay(2000);
+  delay(DELAY_TIME);
   motorA.brake();
   motorB.brake();
-  delay(2000);
+  delay(DELAY_TIME);
 }

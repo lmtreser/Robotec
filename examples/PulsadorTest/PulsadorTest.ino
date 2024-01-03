@@ -9,6 +9,7 @@
 const int BOTON_A_PIN = 2;
 const int BOTON_B_PIN = 3;
 const int START_TIME = 2000;
+const int BLINK_TIME = 300;
 
 // Pin, Modo de conexion: PULL_UP (resistencia externa),
 // PULL_UP_INTERNAL (resistencia interna), PULL_DOWN (resistencia externa)
@@ -33,7 +34,7 @@ void setup() {
   // Si la funcion a pasar como argumento no tiene la misma firma, se debera usar una
   // funcion lambda tal cual el siguiente ejemplo:
   auto callback = []() {
-    led.blinkStart(300);
+    led.blinkStart(BLINK_TIME);
   };
   
   Serial.println("Inicia el destello del LED hasta que se pulse A...");
