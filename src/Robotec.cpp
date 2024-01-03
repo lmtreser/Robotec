@@ -25,8 +25,8 @@
 #include "Robotec.h"
 
 /** @brief Sensor de distancia por ultrasonido
- * @param trigPin Pin fisico Trigger
- * @param echoPin Pin fisico echo
+ * @param trigPin Pin fisico **Trigger**
+ * @param echoPin Pin fisico **Echo**
  * @param timeOut ---
 **/
 Ultrasonic::Ultrasonic(uint8_t trigPin, uint8_t echoPin, unsigned long timeOut) {
@@ -63,7 +63,7 @@ unsigned int Ultrasonic::timing() {
 
 /** @brief Si la unidad de medida no es pasada como un parametro, por defecto,
  *  retornará la distancia en centimetros (**CM**).
- *  @param und CM (centimetros) o INC (pulgadas)
+ *  @param und **CM** (centimetros) o **INC** (pulgadas)
  *  @return **unsigned int** Valor que representa la distancia
 **/
 unsigned int Ultrasonic::read(uint8_t und) {
@@ -71,7 +71,7 @@ unsigned int Ultrasonic::read(uint8_t und) {
 }
 
 /** @brief Sensor de linea simple (tracking y similares)
- *  @param outPin Pin fisico OUT
+ *  @param outPin Pin fisico **OUT**
  *  @param black Valor que entrega al detectar una linea negra, por defecto **false**
 **/
 Tracking::Tracking(uint8_t outPin, bool black = false) {
@@ -85,10 +85,10 @@ Tracking::Tracking(uint8_t outPin, bool black = false) {
 }
 
 /** @brief Sensor de linea triple (Funduino y similares) 
- *  @param lPin Pin fisico LEFT
- *  @param cPin Pin fisico CENTER
- *  @param rPin Pin fisico RIGHT
- *  @param black Valor que entrega al detectar una linea negra, por defecto LOW
+ *  @param lPin Pin fisico **LEFT**
+ *  @param cPin Pin fisico **CENTER**
+ *  @param rPin Pin fisico **RIGHT**
+ *  @param black Valor que entrega al detectar una linea negra, por defecto **LOW**
 **/ 
 Tracking::Tracking(uint8_t lPin, uint8_t cPin, uint8_t rPin, bool black = false) {
   
@@ -106,8 +106,8 @@ Tracking::Tracking(uint8_t lPin, uint8_t cPin, uint8_t rPin, bool black = false)
 
 /** @brief Lectura del estado del sensor
  *  @return **uint8_t** _Sensor simple:_ devuelve por defecto **1** si detecta la linea negra
- *  @return **uint8_t** _Sensor triple:_ NoSensor = **0**, SensorLeft = **1**, SensorCenter = **2**,
- *  SensorRight = **3**, SensorLeftCenter = **4**, SensorRightCenter = **5**, SensorAll = **6**
+ *  @return **uint8_t** _Sensor triple:_ NO_SENSOR = **0**, SENSOR_LEFT = **1**, SENSOR_CENTER = **2**,
+ *  SENSOR_RIGHT = **3**, SENSOR_LEFT_CENTER = **4**, SENSOR_RIGHT_CENTER = **5**, SENSOR_ALL = **6**
 **/
 uint8_t Tracking::read() {
   
@@ -145,9 +145,9 @@ uint8_t Tracking::_readLCR() {
 }
 
 /** @brief Motor de corriente continua
- *  @param enablePin Pin fisico ENABLE
- *  @param in1Pin Pin fisico IN1
- *  @param in2Pin Pin fisico IN2
+ *  @param enablePin Pin fisico **ENABLE**
+ *  @param in1Pin Pin fisico **IN1**
+ *  @param in2Pin Pin fisico **IN2**
 **/
 Motor::Motor(uint8_t enablePin, uint8_t in1Pin, uint8_t in2Pin) {
   
@@ -227,7 +227,7 @@ void Led::blinkStop() {
 }
 
 /** @brief Inicia el destello de un LED, ejecutar en _loop()_.
- *  @param time Tiempo entre cambios de estado, tipo **uint16_t**
+ *  @param time Tiempo (en mS) entre cambios de estado, tipo **uint16_t**
 **/
 void Led::blinkStart(uint16_t time) {
   
@@ -243,8 +243,8 @@ void Led::blinkStart(uint16_t time) {
 }
 
 /** @brief Inicia el destello de un LED, ejecutar en _loop()_.
- *  El parametro _pulses_ establece la cantidad de destellos, al finalizar devuelve true
- *  @param time Tiempo entre cambios de estado, tipo **uint16_t**
+ *  El parametro _pulses_ establece la cantidad de destellos, al finalizar devuelve **true**
+ *  @param time Tiempo (en mS) entre cambios de estado, tipo **uint16_t**
  *  @param pulses Cantidad de veces que debera hacer los cambios de estado, tipo **uint8_t**
 **/
 bool Led::blinkStart(uint16_t time, uint8_t pulses) {
@@ -280,28 +280,76 @@ bool Led::blinkStart(uint16_t time, uint8_t pulses) {
 
 /** @brief Pulsador (pushbutton) 
  *  @param buttonPin  Pin fisico donde se conecta el Pulsador
- *  @param buttonMode Modos: PULL-UP, PULL-DOWN
+ *  @param buttonMode Modos: **PULL_UP_INTERNAL** (resistencia interna), 
+ *  **PULL_UP**, **PULL_DOWN**.
 **/
 Button::Button(uint8_t buttonPin, uint8_t buttonMode) {
   
   _buttonPin = buttonPin;
   _buttonMode = buttonMode;
 
-  pinMode(_buttonPin, _buttonMode);
-
+  if (_buttonMode == PULL_DOWN) {
+    pinMode(_buttonPin, 0);
+  } else {
+    pinMode(_buttonPin, _buttonMode);
+  }
 }
 
-/** @brief ... 
- *  @param ...
+/** @brief  Lee el estado de un boton 
+ *  @return Devuelve **true** si esta presionado, **false** en caso contrario
 **/
-void Button::pushStart(uint8_t time) {
+bool Button::push() {
 
-}
+  int estadoPulsador = LOW;
+  int ultimoEstado = LOW;
+  unsigned long tiempoDebounce = 50;  // Ajusta este valor según sea necesario
+  unsigned long ultimoTiempo = 0;
 
-/** @brief ... 
- *  @param ...
- *  @param ...
-**/
-void Button::pushStart(uint8_t time, void (*callback)()) {
+  // Si es pulldown
+  int lecturaPulsador = !digitalRead(11);
   
+  // si es pull up no se tiene que negar
+
+  if (lecturaPulsador != ultimoEstado) {
+    ultimoTiempo = millis();
+  }
+
+  if ((millis() - ultimoTiempo) > tiempoDebounce) {
+    if (lecturaPulsador != estadoPulsador) {
+      estadoPulsador = lecturaPulsador;
+      return (estadoPulsador == HIGH);
+    }
+  }
+
+  ultimoEstado = lecturaPulsador;
+  return false;
+} 
+
+/** @brief Lee el estado de un Pulsador y genera una demora bloqueante (_delay_) 
+ *  segun el tiempo especificado 
+ *  @param time Tiempo (en mS) entre cambios de estado, tipo **uint16_t**
+**/
+void Button::pushStart(uint16_t time) {
+
+}
+
+/** @brief Lee el estado de un Pulsador y genera una demora bloqueante (_delay_) 
+ *  segun el tiempo especificado 
+ *  @param time Tiempo (en mS) entre cambios de estado, tipo **uint16_t**
+ *  @param void (*callback)() 
+**/
+void Button::pushStart(uint16_t time, void (*callback)()) {
+  
+  bool pushExit = true;
+  int pushDelay = time;
+  
+  while(pushExit){
+    int pulsa = push();
+      if (pulsa) {
+        pushExit = false;
+        Serial.println("Press");
+      }
+      (*callback)();
+  }
+  delay(pushDelay);
 }

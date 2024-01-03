@@ -75,7 +75,7 @@ void loop() {
   Serial.println(trackingRight);
 
   // Activar motores
-  int velocidad = 255;
+  int velocidad = PWM_MAX;
   motorA.start(velocidad);
   motorB.start(velocidad);
   delay(2000);

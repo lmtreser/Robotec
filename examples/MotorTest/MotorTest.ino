@@ -22,7 +22,7 @@ void setup() {
 void loop() {
 
   // Secuencia: arranque, freno, inversion de marcha
-  int velocidad = 255;
+  int velocidad = PWM_MAX;
   motorA.start(velocidad);
   delay(2000);
   motorA.reverse(velocidad);

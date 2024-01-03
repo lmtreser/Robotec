@@ -23,37 +23,37 @@ void setup() {
 void loop() {
 
   /* Segun el estado de los sensores devuelve:
-   * 0: ningun sensor
-   * 1: sensor izquierdo
-   * 2: sensor central
-   * 3: sensor derecho
-   * 4: sensor central e izquierdo
-   * 5: sensor central y derecho
-   * 6: todos los sensores
+   * (0) NO_SENSOR:           ningun sensor
+   * (1) SENSOR_LEFT:         sensor izquierdo
+   * (2) SENSOR_CENTER:       sensor central
+   * (3) SENSOR_RIGHT:        sensor derecho
+   * (4) SENSOR_LEFT_CENTER:  sensor central e izquierdo
+   * (5) SENSOR_RIGHT_CENTER: sensor central y derecho
+   * (6) SENSOR_ALL:          todos los sensores
   */
   int follow = sensorMultiple.read();
 
   // Mensajes descriptivos
   switch (follow) {
-    case 0:
+    case NO_SENSOR:
       Serial.println("Ningun sensor");
       break;
-    case 1:
+    case SENSOR_LEFT:
       Serial.println("Sensor izquierdo");
       break;
-    case 2:
+    case SENSOR_CENTER:
       Serial.println("Sensor central");
       break;
-    case 3:
+    case SENSOR_RIGHT:
       Serial.println("Sensor derecho");
       break;
-    case 4:
+    case SENSOR_LEFT_CENTER:
       Serial.println("Sensor central e izquierdo");
       break;
-    case 5:
+    case SENSOR_RIGHT_CENTER:
       Serial.println("Sensor central y derecho");
       break;
-    case 6:
+    case SENSOR_ALL:
       Serial.println("Todos los sensores");
       break;
     default:

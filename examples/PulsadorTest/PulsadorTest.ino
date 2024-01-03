@@ -1,66 +1,26 @@
+/*
+ * PushButton Test
+ * Prueba un pulsador
+ */
 
-bool ledStatus = false;
+#include <Robotec.h>
+
+// Constantes con pin
+const int BOTON_PIN = 2;
+
+// Pin, Modo de conexion: PULL_UP (resistencia externa), 
+// PULL_UP_INTERNAL (resistencia interna), PULL_DOWN (resistencia externa)
+Button boton(BOTON_PIN, PULL_UP_INTERNAL);
 
 void setup() {
   
-  pinMode(13, OUTPUT);
-  pinMode(11, INPUT_PULLUP);
   Serial.begin(9600);
-  pushStart(3000, led);
-  Serial.println("Entrando al loop");
-  led();
 }
 
 void loop() {
-  //Serial.println(push());
+
+  // Lee el estado del pulsador
+  bool statusButton = boton.push();
+  Serial.println(statusButton);
   
 }
-
-void led() {
-  ledStatus = !ledStatus;
-  digitalWrite(13, ledStatus);
-}
-
-void pushStart(uint8_t time, void (*callback)()) {
-
-  bool pushExit = true;
-  int pushDelay = time;
-  
-  while(pushExit){
-    int pulsa = push();
-      if (pulsa) {
-        pushExit = false;
-        Serial.println("Press");
-      }
-      (*callback)();
-  }
-  delay(pushDelay);
-}
-
-//Variables
-int estadoPulsador = LOW;
-int ultimoEstado = LOW;
-unsigned long tiempoDebounce = 50;  // Ajusta este valor según sea necesario
-unsigned long ultimoTiempo = 0;
-
-bool push() {
-
-  // Si es pulldown
-  int lecturaPulsador = !digitalRead(11);
-  
-  // si es pull up no se tiene que negar
-
-  if (lecturaPulsador != ultimoEstado) {
-    ultimoTiempo = millis();
-  }
-
-  if ((millis() - ultimoTiempo) > tiempoDebounce) {
-    if (lecturaPulsador != estadoPulsador) {
-      estadoPulsador = lecturaPulsador;
-      return (estadoPulsador == HIGH);
-    }
-  }
-
-  ultimoEstado = lecturaPulsador;
-  return false;
-} 
