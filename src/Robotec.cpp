@@ -135,13 +135,13 @@ uint8_t Tracking::_readLCR() {
     sensorRight = !sensorRight;
   }
 
-  if (sensorLeft && !sensorCenter && !sensorRight) return 1;
-  else if (!sensorLeft && sensorCenter && !sensorRight) return 2;
-  else if (!sensorLeft && !sensorCenter && sensorRight) return 3;
-  else if (sensorLeft && sensorCenter && !sensorRight) return 4;
-  else if (!sensorLeft && sensorCenter && sensorRight) return 5;
-  else if (sensorLeft && sensorCenter && sensorRight) return 6;
-  else return 0;
+  if (sensorLeft && !sensorCenter && !sensorRight) return SENSOR_LEFT;
+  else if (!sensorLeft && sensorCenter && !sensorRight) return SENSOR_CENTER;
+  else if (!sensorLeft && !sensorCenter && sensorRight) return SENSOR_RIGHT;
+  else if (sensorLeft && sensorCenter && !sensorRight) return SENSOR_LEFT_CENTER;
+  else if (!sensorLeft && sensorCenter && sensorRight) return SENSOR_RIGHT_CENTER;
+  else if (sensorLeft && sensorCenter && sensorRight) return SENSOR_ALL;
+  else return NO_SENSOR;
 }
 
 /** @brief Motor de corriente continua
@@ -287,9 +287,11 @@ Button::Button(uint8_t buttonPin, uint8_t buttonMode) {
   
   _buttonPin = buttonPin;
   _buttonMode = buttonMode;
+  _buttonState = LOW;
+  _buttonLastState = LOW;
 
   if (_buttonMode == PULL_DOWN) {
-    pinMode(_buttonPin, 0);
+    pinMode(_buttonPin, INPUT);
   } else {
     pinMode(_buttonPin, _buttonMode);
   }
@@ -300,30 +302,21 @@ Button::Button(uint8_t buttonPin, uint8_t buttonMode) {
 **/
 bool Button::push() {
 
-  int estadoPulsador = LOW;
-  int ultimoEstado = LOW;
-  unsigned long tiempoDebounce = 50;  // Ajusta este valor según sea necesario
-  unsigned long ultimoTiempo = 0;
+  uint32_t timeLast = 0;
 
-  // Si es pulldown
-  int lecturaPulsador = !digitalRead(11);
+  uint8_t buttonRead = digitalRead(_buttonPin);
+  if (buttonRead != _buttonLastState) timeLast = millis();
   
-  // si es pull up no se tiene que negar
-
-  if (lecturaPulsador != ultimoEstado) {
-    ultimoTiempo = millis();
-  }
-
-  if ((millis() - ultimoTiempo) > tiempoDebounce) {
-    if (lecturaPulsador != estadoPulsador) {
-      estadoPulsador = lecturaPulsador;
-      return (estadoPulsador == HIGH);
+  if ((millis() - timeLast) > _TIME_DEBOUNCE) {
+    if (buttonRead != _buttonState) {
+      _buttonState = buttonRead;
+      return true;
     }
   }
 
-  ultimoEstado = lecturaPulsador;
+  _buttonLastState = buttonRead;
   return false;
-} 
+}
 
 /** @brief Lee el estado de un Pulsador y genera una demora bloqueante (_delay_) 
  *  segun el tiempo especificado 

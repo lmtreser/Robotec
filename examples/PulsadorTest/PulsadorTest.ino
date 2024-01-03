@@ -21,6 +21,6 @@ void loop() {
 
   // Lee el estado del pulsador
   bool statusButton = boton.push();
-  Serial.println(statusButton);
+  if (statusButton) Serial.println(statusButton);
   
 }

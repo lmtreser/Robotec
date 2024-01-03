@@ -129,5 +129,9 @@ class Button {
   private:
     uint8_t _buttonPin;
     uint8_t _buttonMode;
+    uint8_t _buttonState;
+    uint8_t _buttonLastState;
+    static const uint32_t _TIME_DEBOUNCE = 25;  // Ajustar este valor según sea necesario
 };
+
 #endif
