@@ -22,11 +22,15 @@ void setup() {
   
   Serial.begin(9600);
 
-  // Enciende un LED hasta que transcurra un tiempo desde pulsador el boton
+  // Enciende un LED hasta que transcurra un tiempo desde pulsado el boton
   // Luego lo apaga 
   led.on();
-  //boton.pushStart(START_TIME);
+  botonPullUp.pushStart(START_TIME);
   led.off();
+
+  // Genera un callback, en este caso para destellar un LED hasta que transcurra
+  // un tiempo desde pulsado el boton
+
 }
 
 void loop() {

@@ -304,7 +304,7 @@ Button::Button(uint8_t buttonPin, uint8_t buttonMode) {
 bool Button::push() {
 
   uint8_t buttonRead = !digitalRead(_buttonPin);
-  
+
   if (_buttonMode == PULL_DOWN) buttonRead = !buttonRead;
   if (buttonRead != _buttonLastState) _timeLast = millis();
   
@@ -320,13 +320,19 @@ bool Button::push() {
 }
 
 /** @brief Lee el estado de un Pulsador y genera una demora bloqueante (_delay_) 
- *  segun el tiempo especificado 
+ *  segun el tiempo especificado por **time**
  *  @param time Tiempo (en mS) entre cambios de estado, tipo **uint16_t**
 **/
 void Button::pushStart(uint16_t time) {
 
-
-
+  bool pushStartExit = true;
+  uint16_t pushStartDelay = time;
+  
+  while(pushStartExit) {
+    bool pulsaRead = push();
+    if (pulsaRead == HIGH) pushStartExit = false;
+  }
+  delay(pushStartDelay);
 }
 
 /** @brief Lee el estado de un Pulsador y genera una demora bloqueante (_delay_) 
