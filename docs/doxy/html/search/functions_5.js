@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['start_0',['start',['../classMotor.html#a237e8c9e6e58bfc39fa103bb3b0b10fe',1,'Motor']]]
+  ['read_0',['read',['../classUltrasonic.html#a65f68981188a07df20bc69ac3a6e9aa3',1,'Ultrasonic::read()'],['../classTracking.html#ae10d3986fb5c6ed272fe9091eb8205b6',1,'Tracking::read()']]],
+  ['reverse_1',['reverse',['../classMotor.html#aad090f2aa4d9ffa5b8af7c89748ac046',1,'Motor']]]
 ];

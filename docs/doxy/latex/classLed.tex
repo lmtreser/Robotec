@@ -17,7 +17,7 @@ void {\bfseries toogle} ()
 void \mbox{\hyperlink{classLed_aeb55192e5ab4c2cc9487aa2222da0447}{blink\+Start}} (uint16\+\_\+t time)
 \begin{DoxyCompactList}\small\item\em Inicia el destello de un LED, ejecutar en {\itshape loop()}. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classLed_a6ea8284ce5c4fa3d5fadc81757cefb51}{blink\+Start}} (uint16\+\_\+t time, uint8\+\_\+t pulses)
-\begin{DoxyCompactList}\small\item\em Inicia el destello de un LED, ejecutar en {\itshape loop()}. El parametro {\itshape pulses} establece la cantidad de destellos, al finalizar devuelve true. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Inicia el destello de un LED, ejecutar en {\itshape loop()}. El parametro {\itshape pulses} establece la cantidad de destellos, al finalizar devuelve {\bfseries{true}} \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classLed_acf8747a672fe5f3dba4a664e5e173618}\label{classLed_acf8747a672fe5f3dba4a664e5e173618}} 
 void {\bfseries blink\+Stop} ()
 \begin{DoxyCompactList}\small\item\em Detiene el destello de un LED iniciado por {\itshape \mbox{\hyperlink{classLed_aeb55192e5ab4c2cc9487aa2222da0447}{blink\+Start()}}} \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -54,7 +54,7 @@ Inicia el destello de un LED, ejecutar en {\itshape loop()}.
 
 
 \begin{DoxyParams}{Parámetros}
-{\em time} & Tiempo entre cambios de estado, tipo {\bfseries{uint16\+\_\+t}} \\
+{\em time} & Tiempo (en mS) entre cambios de estado, tipo {\bfseries{uint16\+\_\+t}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classLed_a6ea8284ce5c4fa3d5fadc81757cefb51}\label{classLed_a6ea8284ce5c4fa3d5fadc81757cefb51}} 
@@ -65,11 +65,11 @@ Inicia el destello de un LED, ejecutar en {\itshape loop()}.
 
 
 
-Inicia el destello de un LED, ejecutar en {\itshape loop()}. El parametro {\itshape pulses} establece la cantidad de destellos, al finalizar devuelve true. 
+Inicia el destello de un LED, ejecutar en {\itshape loop()}. El parametro {\itshape pulses} establece la cantidad de destellos, al finalizar devuelve {\bfseries{true}} 
 
 
 \begin{DoxyParams}{Parámetros}
-{\em time} & Tiempo entre cambios de estado, tipo {\bfseries{uint16\+\_\+t}} \\
+{\em time} & Tiempo (en mS) entre cambios de estado, tipo {\bfseries{uint16\+\_\+t}} \\
 \hline
 {\em pulses} & Cantidad de veces que debera hacer los cambios de estado, tipo {\bfseries{uint8\+\_\+t}} \\
 \hline

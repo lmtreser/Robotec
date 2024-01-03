@@ -1,0 +1,85 @@
+\hypertarget{classButton}{}\doxysection{Referencia de la Clase Button}
+\label{classButton}\index{Button@{Button}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classButton_a14fad28727c495daab28f211360007c2}{Button}} (uint8\+\_\+t button\+Pin, uint8\+\_\+t button\+Mode)
+\begin{DoxyCompactList}\small\item\em Pulsador (pushbutton) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classButton_acd04d3c7f75689686e1465e8ccba657c}{push}} ()
+\begin{DoxyCompactList}\small\item\em Lee el estado de un boton. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classButton_a7db25af32d9c7b47f8161542f2299b9a}{push\+Start}} (uint16\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em Lee el estado de un Pulsador y genera una demora bloqueante ({\itshape delay}) segun el tiempo especificado por {\bfseries{time}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classButton_ae64230423b59019ebc757a59af5fa14e}{push\+Start}} (void($\ast$callback)())
+\begin{DoxyCompactList}\small\item\em Lee el estado de un Pulsador y genera un callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classButton_a14fad28727c495daab28f211360007c2}\label{classButton_a14fad28727c495daab28f211360007c2}} 
+\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily Button\+::\+Button (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button\+Pin,  }\item[{uint8\+\_\+t}]{button\+Mode }\end{DoxyParamCaption})}
+
+
+
+Pulsador (pushbutton) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em button\+Pin} & Pin fisico donde se conecta el Pulsador \\
+\hline
+{\em button\+Mode} & Modos\+: {\bfseries{PULL\+\_\+\+UP\+\_\+\+INTERNAL}} (resistencia interna), {\bfseries{PULL\+\_\+\+UP}}, {\bfseries{PULL\+\_\+\+DOWN}}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classButton_acd04d3c7f75689686e1465e8ccba657c}\label{classButton_acd04d3c7f75689686e1465e8ccba657c}} 
+\index{Button@{Button}!push@{push}}
+\index{push@{push}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily bool Button\+::push (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lee el estado de un boton. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve {\bfseries{true}} si esta presionado, {\bfseries{false}} en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classButton_a7db25af32d9c7b47f8161542f2299b9a}\label{classButton_a7db25af32d9c7b47f8161542f2299b9a}} 
+\index{Button@{Button}!pushStart@{pushStart}}
+\index{pushStart@{pushStart}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{pushStart()}{pushStart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Button\+::push\+Start (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{time }\end{DoxyParamCaption})}
+
+
+
+Lee el estado de un Pulsador y genera una demora bloqueante ({\itshape delay}) segun el tiempo especificado por {\bfseries{time}} 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em time} & Tiempo (en mS) en salir del bucle, tipo {\bfseries{uint16\+\_\+t}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classButton_ae64230423b59019ebc757a59af5fa14e}\label{classButton_ae64230423b59019ebc757a59af5fa14e}} 
+\index{Button@{Button}!pushStart@{pushStart}}
+\index{pushStart@{pushStart}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{pushStart()}{pushStart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Button\+::push\+Start (\begin{DoxyParamCaption}\item[{void($\ast$)()}]{callback }\end{DoxyParamCaption})}
+
+
+
+Lee el estado de un Pulsador y genera un callback. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em void} & ($\ast$callback)() Funcion a ejecutar, si la firma no coincide habra que valerse de una funcion lambda para enmascarar la funcion a pasar, por ejemplo\+: auto callback = \mbox{[}\mbox{]}() \{ funcion\+\_\+a\+\_\+enmascarar(parametro); \}; \\
+\hline
+\end{DoxyParams}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Robotec.\+h\item 
+Robotec.\+cpp\end{DoxyCompactItemize}
