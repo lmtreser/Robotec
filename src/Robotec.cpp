@@ -303,14 +303,15 @@ Button::Button(uint8_t buttonPin, uint8_t buttonMode) {
 **/
 bool Button::push() {
 
-  // if (_buttonMode == PULL_DOWN) ...
   uint8_t buttonRead = !digitalRead(_buttonPin);
+  
+  if (_buttonMode == PULL_DOWN) buttonRead = !buttonRead;
   if (buttonRead != _buttonLastState) _timeLast = millis();
   
   if ((millis() - _timeLast) > _TIME_DEBOUNCE) {
     if (buttonRead != _buttonState) {
       _buttonState = buttonRead;
-      return true;
+      return (_buttonState == HIGH);
     }
   }
 

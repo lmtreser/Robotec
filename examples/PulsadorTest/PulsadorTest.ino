@@ -6,12 +6,14 @@
 #include <Robotec.h>
 
 // Constantes
-const int BOTON_PIN = 2;
+const int BOTON_A_PIN = 2;
+const int BOTON_B_PIN = 3;
 const int START_TIME = 2000;
 
 // Pin, Modo de conexion: PULL_UP (resistencia externa), 
 // PULL_UP_INTERNAL (resistencia interna), PULL_DOWN (resistencia externa)
-Button boton(BOTON_PIN, PULL_UP_INTERNAL);
+Button botonPullUp(BOTON_A_PIN, PULL_UP_INTERNAL);
+Button botonPullDown(BOTON_B_PIN, PULL_DOWN);
 
 // Definicion de LED auxiliar
 Led led(LED_BUILTIN);
@@ -29,8 +31,12 @@ void setup() {
 
 void loop() {
 
-  // Lee el estado del pulsador
-  bool statusButton = boton.push();
-  if (statusButton) Serial.println(statusButton);
+  // Lee el estado del pulsador Pull-Up
+  bool statusButtonA = botonPullUp.push();
+  if (statusButtonA) Serial.println(statusButtonA);
+
+  // Lee el estado del pulsador Pull-Down
+  bool statusButtonB = botonPullDown.push();
+  if (statusButtonB) Serial.println(statusButtonB);
   
 }
