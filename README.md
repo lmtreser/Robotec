@@ -9,6 +9,10 @@ Biblioteca para trabajar con robotica educativa bajo la competencia Robotec. Act
 - LED de uso general
 - Pulsador
 
+## Documentación
+
+En el directorio **docs** se encuentra disponible la documentación de las clases y pinouts de los diferentes dispositivos. Además en el directorio **examples** hay varios ejemplos simples para una rápida implementación.
+
 --
 Lucas Martin Treser
 Diciembre de 2023
