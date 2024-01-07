@@ -19,5 +19,4 @@ En el directorio **docs** se encuentra disponible la documentación de las clase
 - Probar el funcionamiento con diferentes configuraciones de hardware
 
 ---
-*Lucas Martin Treser*
-*Diciembre de 2023*
+*Lucas Martin Treser - Diciembre de 2023*
