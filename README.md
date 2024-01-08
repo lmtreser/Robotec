@@ -9,6 +9,10 @@ Biblioteca para trabajar con robótica educativa bajo la competencia Robotec. Ac
 - LED de uso general
 - Pulsador de uso general
 
+## Hardware
+
+El diseño del hardware esta atado a las reglas de la compentencia. En el repositorio [**Proyectos**](https://github.com/lmtreser/Proyectos/tree/main/Robotec) hay algunos ejemplos.
+
 ## Documentación
 
 En el directorio **docs** se encuentra disponible la documentación de las clases y pinouts de los diferentes dispositivos. Además en el directorio **examples** hay varios ejemplos simples para una rápida implementación.
