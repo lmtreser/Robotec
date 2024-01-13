@@ -19,7 +19,7 @@ En el directorio **docs** se encuentra disponible la documentación de las clase
 
 ## ToDo
 
-- Agregar soporte para sensor de proximidad por infrarrojos [TCRT5000L de 5 vías](https://www.instructables.com/5-Ways-TCRT5000-Tracking-Sensor-Module-Tutorial/)
+- [2079956506:](https://github.com/lmtreser/Robotec/issues/3#issue-2079956506) agregar soporte para sensor de proximidad por infrarrojos [TCRT5000L de 5 vías](https://www.instructables.com/5-Ways-TCRT5000-Tracking-Sensor-Module-Tutorial/) 
 - Probar el funcionamiento con diferentes configuraciones de hardware
 
 ---
