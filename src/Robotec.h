@@ -8,16 +8,14 @@
  *
  * Utiliza código (o parte de el) de las siguientes bibliotecas:
  *
- * --- Ultrasonic.cpp ---
+ * --- Ultrasonic.h ---
  * Library for Ultrasonic Ranging Module in a minimalist way
  * created 3 Apr 2014 by Erick Simões (github: @ErickSimoes | twitter: @AloErickSimoes)
  * Released into the MIT License.
- * --- Ultrasonic.cpp ---
  * 
  * --- Led.h ---
  * Led - Arduino library
  * https://gitlab.com/yesbotics/libs/arduino/led
- * --- Led.h ---
  * 
 **/
 
