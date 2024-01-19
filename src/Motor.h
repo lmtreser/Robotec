@@ -1,3 +1,8 @@
+/*  -- Motor --
+ *  Parte de la biblioteca "Robotec" 
+ *  created 20 Dic 2023
+ *  by Lucas Martin Treser
+*/
 
 #ifndef Motor_h
 #define Motor_h

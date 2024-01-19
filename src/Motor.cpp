@@ -1,3 +1,8 @@
+/*  -- Motor --
+ *  Parte de la biblioteca "Robotec" 
+ *  created 20 Dic 2023
+ *  by Lucas Martin Treser
+*/
 
 #include "Motor.h"
 #include "Arduino.h"
