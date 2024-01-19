@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Robotec<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Robotec<span id="projectnumber">&#160;1.0.0</span>
    </div>
   </td>
  </tr>
@@ -65,165 +65,18 @@ $(function() {
   <div class="headertitle"><div class="title">Robotec.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Biblioteca para la competencia de robotica educativa &quot;Robotec&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * created 20 Dic 2023</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * by Lucas Martin Treser (github: @lmtreser)</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * *************************************************************************************</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * Utiliza código (o parte de el) de las siguientes bibliotecas:</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * --- Ultrasonic.h ---</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Library for Ultrasonic Ranging Module in a minimalist way</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * created 3 Apr 2014 by Erick Simões (github: @ErickSimoes | twitter: @AloErickSimoes)</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * Released into the MIT License.</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * --- Ultrasonic.h ---</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * --- Led.h ---</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * Led - Arduino library</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * https://gitlab.com/yesbotics/libs/arduino/led</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * --- Led.h ---</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef Robotec_h</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define Robotec_h</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*** Constantes Globales Ultrasonic ***/</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t CM   = 28;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t INC  = 71;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/*** Constantes Globales Tracking ***/</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t NO_SENSOR = 0; </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t SENSOR_LEFT = 1;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t SENSOR_CENTER = 2;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t SENSOR_RIGHT = 3; </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t SENSOR_LEFT_CENTER = 4;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t SENSOR_RIGHT_CENTER = 5;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t SENSOR_ALL = 6;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/*** Constantes Globales Motor ***/</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t PWM_MIN = 0;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t PWM_MAX = 255;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/*** Constantes Globales Button ***/</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t PULL_UP = 0;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t PULL_UP_INTERNAL = 2;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t PULL_DOWN = 3;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/*** Sensor de distancia por ultrasonido ***/</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classUltrasonic.html">   49</a></span><span class="keyword">class </span><a class="code hl_class" href="classUltrasonic.html">Ultrasonic</a> {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keyword">public</span>:   </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classUltrasonic.html">Ultrasonic</a>(uint8_t sigPin) : <a class="code hl_class" href="classUltrasonic.html">Ultrasonic</a>(sigPin, sigPin) {};</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classUltrasonic.html">Ultrasonic</a>(uint8_t trigPin, uint8_t echoPin, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> timeOut = 20000UL);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classUltrasonic.html#a65f68981188a07df20bc69ac3a6e9aa3">read</a>(uint8_t und = CM);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> setTimeout(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> timeOut) {timeout = timeOut;}</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    uint8_t trig;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    uint8_t echo;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">boolean</span> threePins = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> previousMicros;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> timeout;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> timing();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/*** Sensor de linea (tracking) ***/</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classTracking.html">   66</a></span><span class="keyword">class </span><a class="code hl_class" href="classTracking.html">Tracking</a> {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_function" href="classTracking.html#aa42afd97dacf7c59d9d6a87569144562">Tracking</a>(uint8_t outPin, <span class="keywordtype">bool</span> black = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_function" href="classTracking.html#aa42afd97dacf7c59d9d6a87569144562">Tracking</a>(uint8_t lPin, uint8_t cPin, uint8_t rPin, <span class="keywordtype">bool</span> black = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">// TODO: agregar soporte para sensor &quot;5-Channel IR Tracker&quot;</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    uint8_t <a class="code hl_function" href="classTracking.html#ae10d3986fb5c6ed272fe9091eb8205b6">read</a>();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    uint8_t _readLCR();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">bool</span> _blackLineState;   <span class="comment">// valor que entrega el sensor al leer linea negra</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">bool</span> _sensorType;       <span class="comment">// tipo de sensor, true: triple, false: simple</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    uint8_t _state;         <span class="comment">// estado de retorno de la lectura del sensor</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    uint8_t _outPin;        <span class="comment">// sensor simple: pin out</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    uint8_t _lPin;          <span class="comment">// sensor triple: pin izquierdo</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    uint8_t _cPin;          <span class="comment">// sensor triple: pin central</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    uint8_t _rPin;          <span class="comment">// sensor triple: pin derecho</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">/*** Motor DC ***/</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classMotor.html">   85</a></span><span class="keyword">class </span><a class="code hl_class" href="classMotor.html">Motor</a> {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_function" href="classMotor.html#ae9617669a35a13de90d6f54d8d7e39ec">Motor</a>(uint8_t enablePin, uint8_t in1Pin, uint8_t in2Pin);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMotor.html#a237e8c9e6e58bfc39fa103bb3b0b10fe">start</a>(uint8_t pwm);                                   <span class="comment">// Iniciar y detener el motor</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMotor.html#aad090f2aa4d9ffa5b8af7c89748ac046">reverse</a>(uint8_t pwm);                                 <span class="comment">// Invertir la dirección del motor</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMotor.html#ae8747855c2e4cb1992eaddf687db7a6f">brake</a>();                                              <span class="comment">// Aplicar freno al motor</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    uint8_t _velocidad;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    uint8_t _enablePin;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    uint8_t _in1Pin;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    uint8_t _in2Pin;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> _setSpeed(uint8_t pwm);   <span class="comment">// Establecer la velocidad del motor</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/*** LED Testigo ***/</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classLed.html">  102</a></span><span class="keyword">class </span><a class="code hl_class" href="classLed.html">Led</a> {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_function" href="classLed.html#afabbd84bf865e86de2801083235cb49a">Led</a>(uint8_t ledPin);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLed.html#aacd02b0eb819d77c24e93adf02102fae">on</a>();                                         <span class="comment">// Enciende</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLed.html#a074b561e0b5a9501f77b606223ec039d">off</a>();                                        <span class="comment">// Apaga</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLed.html#addb51d306b7276ff8ef60e348ed503df">toogle</a>();                                     <span class="comment">// Cambia el estado</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLed.html#aeb55192e5ab4c2cc9487aa2222da0447">blinkStart</a>(uint16_t time);                    <span class="comment">// Destello, ejecutar en loop()</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classLed.html#aeb55192e5ab4c2cc9487aa2222da0447">blinkStart</a>(uint16_t time, uint8_t pulses);    <span class="comment">// Destello controlado, ejecutar en loop()</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLed.html#acf8747a672fe5f3dba4a664e5e173618">blinkStop</a>();                                  <span class="comment">// Finaliza el destello</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">bool</span> _statusLed;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">bool</span> _blinkStopValue;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">bool</span> _blinkFlag;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    uint8_t _blinkPulses;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    uint8_t _ledPin;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    uint32_t _lastMillis;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>};</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">/*** Pulsador ***/</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classButton.html">  122</a></span><span class="keyword">class </span><a class="code hl_class" href="classButton.html">Button</a> {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_function" href="classButton.html#a14fad28727c495daab28f211360007c2">Button</a>(uint8_t buttonPin, uint8_t buttonMode);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classButton.html#acd04d3c7f75689686e1465e8ccba657c">push</a>();</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classButton.html#a7db25af32d9c7b47f8161542f2299b9a">pushStart</a>(uint16_t time);</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classButton.html#a7db25af32d9c7b47f8161542f2299b9a">pushStart</a>(<span class="keywordtype">void</span> (*callback)());</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    uint8_t _buttonPin;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    uint8_t _buttonMode;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    uint8_t _buttonState;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    uint8_t _buttonLastState;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    uint32_t _timeLast;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t _TIME_DEBOUNCE = 50;  <span class="comment">// Ajustar este valor según sea necesario</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>};</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> Robotec.h:122</div></div>
-<div class="ttc" id="aclassButton_html_a14fad28727c495daab28f211360007c2"><div class="ttname"><a href="classButton.html#a14fad28727c495daab28f211360007c2">Button::Button</a></div><div class="ttdeci">Button(uint8_t buttonPin, uint8_t buttonMode)</div><div class="ttdoc">Pulsador (pushbutton)</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:286</div></div>
-<div class="ttc" id="aclassButton_html_a7db25af32d9c7b47f8161542f2299b9a"><div class="ttname"><a href="classButton.html#a7db25af32d9c7b47f8161542f2299b9a">Button::pushStart</a></div><div class="ttdeci">void pushStart(uint16_t time)</div><div class="ttdoc">Lee el estado de un Pulsador y genera una demora bloqueante (delay) segun el tiempo especificado por ...</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:326</div></div>
-<div class="ttc" id="aclassButton_html_acd04d3c7f75689686e1465e8ccba657c"><div class="ttname"><a href="classButton.html#acd04d3c7f75689686e1465e8ccba657c">Button::push</a></div><div class="ttdeci">bool push()</div><div class="ttdoc">Lee el estado de un boton.</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:304</div></div>
-<div class="ttc" id="aclassLed_html"><div class="ttname"><a href="classLed.html">Led</a></div><div class="ttdef"><b>Definition:</b> Robotec.h:102</div></div>
-<div class="ttc" id="aclassLed_html_a074b561e0b5a9501f77b606223ec039d"><div class="ttname"><a href="classLed.html#a074b561e0b5a9501f77b606223ec039d">Led::off</a></div><div class="ttdeci">void off()</div><div class="ttdoc">Apaga un LED.</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:214</div></div>
-<div class="ttc" id="aclassLed_html_aacd02b0eb819d77c24e93adf02102fae"><div class="ttname"><a href="classLed.html#aacd02b0eb819d77c24e93adf02102fae">Led::on</a></div><div class="ttdeci">void on()</div><div class="ttdoc">Enciende un LED.</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:209</div></div>
-<div class="ttc" id="aclassLed_html_acf8747a672fe5f3dba4a664e5e173618"><div class="ttname"><a href="classLed.html#acf8747a672fe5f3dba4a664e5e173618">Led::blinkStop</a></div><div class="ttdeci">void blinkStop()</div><div class="ttdoc">Detiene el destello de un LED iniciado por blinkStart()</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:225</div></div>
-<div class="ttc" id="aclassLed_html_addb51d306b7276ff8ef60e348ed503df"><div class="ttname"><a href="classLed.html#addb51d306b7276ff8ef60e348ed503df">Led::toogle</a></div><div class="ttdeci">void toogle()</div><div class="ttdoc">Cambia el estado de un LED.</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:219</div></div>
-<div class="ttc" id="aclassLed_html_aeb55192e5ab4c2cc9487aa2222da0447"><div class="ttname"><a href="classLed.html#aeb55192e5ab4c2cc9487aa2222da0447">Led::blinkStart</a></div><div class="ttdeci">void blinkStart(uint16_t time)</div><div class="ttdoc">Inicia el destello de un LED, ejecutar en loop().</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:232</div></div>
-<div class="ttc" id="aclassLed_html_afabbd84bf865e86de2801083235cb49a"><div class="ttname"><a href="classLed.html#afabbd84bf865e86de2801083235cb49a">Led::Led</a></div><div class="ttdeci">Led(uint8_t ledPin)</div><div class="ttdoc">LED testigo.</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:196</div></div>
-<div class="ttc" id="aclassMotor_html"><div class="ttname"><a href="classMotor.html">Motor</a></div><div class="ttdef"><b>Definition:</b> Robotec.h:85</div></div>
-<div class="ttc" id="aclassMotor_html_a237e8c9e6e58bfc39fa103bb3b0b10fe"><div class="ttname"><a href="classMotor.html#a237e8c9e6e58bfc39fa103bb3b0b10fe">Motor::start</a></div><div class="ttdeci">void start(uint8_t pwm)</div><div class="ttdoc">Enciende el motor en un sentido (marcha)</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:166</div></div>
-<div class="ttc" id="aclassMotor_html_aad090f2aa4d9ffa5b8af7c89748ac046"><div class="ttname"><a href="classMotor.html#aad090f2aa4d9ffa5b8af7c89748ac046">Motor::reverse</a></div><div class="ttdeci">void reverse(uint8_t pwm)</div><div class="ttdoc">Enciende el motor con la marcha invertida respecto a start()</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:175</div></div>
-<div class="ttc" id="aclassMotor_html_ae8747855c2e4cb1992eaddf687db7a6f"><div class="ttname"><a href="classMotor.html#ae8747855c2e4cb1992eaddf687db7a6f">Motor::brake</a></div><div class="ttdeci">void brake()</div><div class="ttdoc">Frenar el motor, dejandolo en posición de giro libre.</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:182</div></div>
-<div class="ttc" id="aclassMotor_html_ae9617669a35a13de90d6f54d8d7e39ec"><div class="ttname"><a href="classMotor.html#ae9617669a35a13de90d6f54d8d7e39ec">Motor::Motor</a></div><div class="ttdeci">Motor(uint8_t enablePin, uint8_t in1Pin, uint8_t in2Pin)</div><div class="ttdoc">Motor de corriente continua.</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:152</div></div>
-<div class="ttc" id="aclassTracking_html"><div class="ttname"><a href="classTracking.html">Tracking</a></div><div class="ttdef"><b>Definition:</b> Robotec.h:66</div></div>
-<div class="ttc" id="aclassTracking_html_aa42afd97dacf7c59d9d6a87569144562"><div class="ttname"><a href="classTracking.html#aa42afd97dacf7c59d9d6a87569144562">Tracking::Tracking</a></div><div class="ttdeci">Tracking(uint8_t outPin, bool black=false)</div><div class="ttdoc">Sensor de linea simple (tracking y similares)</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:77</div></div>
-<div class="ttc" id="aclassTracking_html_ae10d3986fb5c6ed272fe9091eb8205b6"><div class="ttname"><a href="classTracking.html#ae10d3986fb5c6ed272fe9091eb8205b6">Tracking::read</a></div><div class="ttdeci">uint8_t read()</div><div class="ttdoc">Lectura del estado del sensor.</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:112</div></div>
-<div class="ttc" id="aclassUltrasonic_html"><div class="ttname"><a href="classUltrasonic.html">Ultrasonic</a></div><div class="ttdef"><b>Definition:</b> Robotec.h:49</div></div>
-<div class="ttc" id="aclassUltrasonic_html_a65f68981188a07df20bc69ac3a6e9aa3"><div class="ttname"><a href="classUltrasonic.html#a65f68981188a07df20bc69ac3a6e9aa3">Ultrasonic::read</a></div><div class="ttdeci">unsigned int read(uint8_t und=CM)</div><div class="ttdoc">Si la unidad de medida no es pasada como un parametro, por defecto, retornará la distancia en centime...</div><div class="ttdef"><b>Definition:</b> Robotec.cpp:69</div></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#ifndef Robotec_h</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define Robotec_h</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;Ultrasonic.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;Tracking.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;Motor.h&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;Led.h&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;Button.h&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;Arduino.h&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
