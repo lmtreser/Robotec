@@ -1,0 +1,49 @@
+##########################################
+# Syntax Coloring Map For Robotec Library
+##########################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Button	KEYWORD1
+Led	KEYWORD1
+Motor	KEYWORD1
+Tracking	KEYWORD1
+Ultrasonic	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+push	KEYWORD2
+pushStart	KEYWORD2
+on	KEYWORD2
+off	KEYWORD2
+toogle	KEYWORD2
+blinkStart	KEYWORD2
+blinkStop	KEYWORD2
+start	KEYWORD2
+reverse	KEYWORD2
+brake	KEYWORD2
+read	KEYWORD2
+setTimeout	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+PULL_UP	LITERAL1
+PULL_UP_INTERNAL	LITERAL1
+PULL_DOWN	LITERAL1
+PWM_MIN	LITERAL1
+PWM_MAX	LITERAL1
+NO_SENSOR	LITERAL1
+SENSOR_LEFT	LITERAL1
+SENSOR_CENTER	LITERAL1
+SENSOR_RIGHT	LITERAL1
+SENSOR_LEFT_CENTER	LITERAL1
+SENSOR_RIGHT_CENTER	LITERAL1
+SENSOR_ALL	LITERAL1
+CM	LITERAL1
+INC	LITERAL1
