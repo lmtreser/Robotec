@@ -1,6 +1,8 @@
 # Biblioteca Robotec
 
-Biblioteca para trabajar con robótica educativa bajo la competencia [Robotec](https://robotecc.carrd.co/). Actualmente soporta los siguientes dispositivos:
+Biblioteca para trabajar con robótica educativa bajo la competencia [Robotec](https://robotecc.carrd.co/). Podes leer una breve reseña de la competencia en mi blog: [Robotec, una competencia de robótica escolar](https://www.automatismos-mdq.com.ar/blog/2024/01/robotec-una-competencia-de-robotica-escolar.html).
+
+Actualmente soporta los siguientes dispositivos:
 
 - Motor DC con drivers L293 y L298
 - Sensor de distancia por ultrasonidos (HC-SR04 y similares)
