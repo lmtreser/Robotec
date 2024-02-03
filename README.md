@@ -13,7 +13,7 @@ Actualmente soporta los siguientes dispositivos:
 
 ## Hardware
 
-El diseño del hardware esta atado a las reglas de la compentencia. En el repositorio [**Proyectos**](https://github.com/lmtreser/Proyectos/tree/main/Robotec) hay algunos ejemplos.
+El diseño del hardware esta atado a las reglas de la compentencia. En el repositorio [*Proyectos Educativos*](https://github.com/lmtreser/Proyectos-Educativos/tree/main/Robotec) hay algunos ejemplos.
 
 ## Documentación
 
