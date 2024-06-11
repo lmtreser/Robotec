@@ -27,5 +27,6 @@
 #include "Motor.h"
 #include "Led.h"
 #include "Button.h"
+#include "Leva.h"
 
 #endif
