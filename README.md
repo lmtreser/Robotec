@@ -15,6 +15,12 @@ Actualmente soporta los siguientes dispositivos:
 
 El diseño del hardware esta atado a las reglas de la compentencia. En el repositorio [*Proyectos Educativos*](https://github.com/lmtreser/Proyectos-Educativos/tree/main/Robotec) hay algunos ejemplos.
 
+## Instalación
+
+La biblioteca se puede instalar clonando este repositorio, o desde el *Gestor de Bibliotecas* de Arduino IDE.
+
+![](./docs/install.gif)
+
 ## Documentación
 
 En el directorio [**docs**](https://lmtreser.github.io/Robotec/) se encuentra disponible la documentación de las clases y pinouts de los diferentes dispositivos. Además en el directorio **examples** hay varios ejemplos simples para una rápida implementación.
